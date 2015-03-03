@@ -1,6 +1,6 @@
 'use strict';
-var growboxApp = angular.module( 'growbox', [
+var growboxApp = angular.module('growboxApp', [
     'ngRoute',
-    'growboxAppControllers'
+    'header-directive'
 ]);
 
