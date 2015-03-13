@@ -1,0 +1,15 @@
+<seeds-menu class="col-md-2"></seeds-menu>
+<div ng-class="{'col-md-8': isConnected(), 'col-md-10': !isConnected()}">
+        <dl class="dl-horizontal col-md-7">
+        <dt>Nom</dt>
+        <dd>{{name}}</dd>
+        <dt>Famille</dt>
+        <dd>{{family}}</dd>
+        <dt>Description</dt>
+        <dd>{{desc}}</dd>
+        <dt>Wikipedia</dt>
+        <dd><a href="{{wikipedia}}" target="_blank">plus d'infos</a></dd>
+    </dl>
+    <img class="col-md-5 img-rounded" ng-src="{{image}}"/>
+</div>
+<profile-panel class="col-md-2" ng-show="isConnected()"></profile-panel>

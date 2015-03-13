@@ -1,0 +1,5 @@
+<ul class="nav nav-pills nav-stacked">
+    <li role="presentation" ng-repeat="seed in seeds" ng-class="{active: seed.id === activeId}">
+        <a href="#/infos/{{seed.id}}">{{seed.name}}</a>
+    </li>
+</ul>

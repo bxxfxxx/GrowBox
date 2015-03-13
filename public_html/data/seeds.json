@@ -1,4 +1,14 @@
-{
-    "name": "lense",
-    "images": ["img/lentilles.jpg"]
-}
+[
+    {
+        "id": "lentille",
+        "name": "Lentilles"
+    },
+    {
+        "id":"luzerne",
+        "name": "Luzerne alfalfa"
+    },
+    {
+        "id":"mungo",
+        "name": "Haricots mungo"
+    }
+]

@@ -1,0 +1,53 @@
+<div class="container col-md-8 col-md-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                Profil
+            </h4>
+        </div>
+        <div class="panel-body">
+            <form id="login-form" class="form-horizontal" ng-submit="updateProfile(user.mail, user.firstname, user.lastname, user.img)">
+               <div class="form-group">
+                    <label for="input-email" class="col-sm-3 control-label">
+                        <span class="label label-info">Email</span>
+                    </label>
+                    <div class="col-sm-6">
+                        <input  ng-model="user.mail" type="text" class="form-control" id="input-email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-firstname" class="col-sm-3 control-label">
+                        <span class="label label-info">Prénom</span>
+                    </label>
+                    <div class="col-sm-6">
+                        <input  ng-model="user.firstname" type="text" class="form-control" id="input-firstname" placeholder="Team">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-lastname" class="col-sm-3 control-label">
+                        <span class="label label-info">Nom</span>
+                    </label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.lastname" type="text" class="form-control" id="input-lastname" placeholder="Rocket">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-img" class="col-sm-3 control-label">
+                        <span class="label label-info">Photo</span>
+                    </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input  ng-model="user.img" type="text" class="form-control" id="input-img" placeholder="http://">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-upload"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-2">
+                        <button type="submit" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-save"></i> Enregistrer !</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -2,23 +2,24 @@ growboxApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
                 .when('/home', {
-                    templateUrl: 'snippet/home.html'
+                    templateUrl: 'snippet/home.html',
+                    controller: 'HomeCtrl'
                 })
-                .when('/germination/new', {
-                    templateUrl: 'snippet/new-germination.html',
-                    controller: 'newGerminationCtrl'
+                .when('/infos', {
+                    templateUrl: 'snippet/seeds-list.html',
+                    controller: 'SeedListCtrl'
                 })
-                .when('/germination/current', {
-                    templateUrl: 'snippet/current-germination.html',
-                    controller: 'currentGerminationCtrl'
+                .when('/infos/:seedId?', {
+                    templateUrl: 'snippet/seed.html',
+                    controller: 'SeedCtrl'
                 })
-                .when('/germination/history', {
-                    templateUrl: 'snippet/history.html',
-                    controller: 'historyCtrl'
+                .when('/login', {
+                    templateUrl: 'snippet/login.html',
+                    controller: 'LoginCtrl'
                 })
                 .when('/profile', {
                     templateUrl: 'snippet/profile.html',
-                    controller: 'profileCtrl'
+                    controller: 'ProfileCtrl'
                 })
                 .otherwise({
                     redirectTo: '/home'

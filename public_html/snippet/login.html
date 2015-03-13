@@ -6,13 +6,13 @@
             </h4>
         </div>
         <div class="panel-body">
-            <form id="login-form" class="form-horizontal" action="javascript:login()">
+            <form id="login-form" class="form-horizontal" ng-submit="login(email, password)">
                 <div class="form-group">
                     <label for="input-email" class="col-sm-3 control-label">
                         <span class="label label-info">Email</span>
                     </label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" id="input-email" placeholder="Email">
+                        <input  ng-model="email" type="text" class="form-control" id="input-email" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
@@ -20,12 +20,12 @@
                         <span class="label label-info">Mot de passe</span>
                     </label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="input-password" placeholder="Password">
+                        <input ng-model="password" type="password" class="form-control" id="input-password" placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
-                        <button type="submit" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-flash"></i> Sign in</button>
+                        <button type="submit" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-flash"></i> Grow !</button>
                     </div>
                 </div>
             </form>

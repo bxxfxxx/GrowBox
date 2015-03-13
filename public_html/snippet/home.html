@@ -1,6 +1,7 @@
-<section class="home">
+<div ng-class="{'col-md-12': !isConnected(), 'col-md-10': isConnected()}" class="text-center">
     <h2>Growbox</h2>
     <p>
         {{message}}
     </p>
-</section>
+</div>
+<profile-panel ng-show="isConnected()" class="col-md-2"></profile-panel>
