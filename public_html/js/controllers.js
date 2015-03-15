@@ -23,6 +23,7 @@ growboxControllers.controller('SeedCtrl', ['$scope', '$routeParams', 'SeedServic
             $scope.desc = seed.desc;
             $scope.wikipedia = seed.wikipedia;
             $scope.image = seed.images[0];
+            $scope.germination = seed.germination;
         });
         $scope.isConnected = UserService.isConnected;
     }

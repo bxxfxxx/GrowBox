@@ -5,5 +5,27 @@
     ],
     "desc": "La Lentille cultivée, la Lentille comestible ou la Lentille (Lens culinaris Medik., 1787) est une espèce de plantes dicotylédones appartenant à la famille des Fabaceae (les légumineuses). Cette plante annuelle est largement cultivée pour ses graines comestibles riches en protéines. Les fruits sont des gousses renfermant deux graines rondes aplaties. Les lentilles font partie des légumes secs appréciés en Europe même si la production mondiale est faible : 2 800 000 tonnes par an1. En France, la Lentille Verte du Puy bénéficie d'une AOC. Comme l'attestent de nombreux témoignages, en plus de l'épisode d'Ésaü dans la Genèse, la consommation des lentilles remonte à la naissance de l'agriculture en Mésopotamie.",
     "wikipedia": "http://fr.wikipedia.org/wiki/Lentille_cultiv%C3%A9e",
-    "family": "fabacées"
+    "family": "fabacées",
+    "germination": {
+        "soaking": {
+            "value": "3",
+            "mesure": "hour"
+        },
+        "humidity": {
+            "value": "50",
+            "mesure": "percent"
+        },
+        "temprature": {
+            "value": "35",
+            "mesure": "celsius"
+        },
+        "brightness": {
+            "value": "50",
+            "mesure": "lumen"
+        },
+        "growingTime": {
+            "value": "15/21",
+            "mesure": "day"
+        }
+    }
 }

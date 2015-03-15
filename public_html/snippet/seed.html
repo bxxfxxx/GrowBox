@@ -1,12 +1,39 @@
 <seeds-menu class="col-md-2"></seeds-menu>
 <div ng-class="{'col-md-8': isConnected(), 'col-md-10': !isConnected()}">
-        <dl class="dl-horizontal col-md-7">
+    <dl class="dl-horizontal col-md-7">
         <dt>Nom</dt>
         <dd>{{name}}</dd>
         <dt>Famille</dt>
         <dd>{{family}}</dd>
         <dt>Description</dt>
         <dd>{{desc}}</dd>
+        <dt>Germination</dt>
+        <dd>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>trempage</th>
+                        <td>{{germination.soaking | mesure}}</td>
+                    </tr>
+                    <tr>
+                        <th>humidité</th>
+                        <td>{{germination.humidity | mesure}}</td>
+                    </tr>
+                    <tr>
+                        <th>température</th>
+                        <td>{{germination.temprature | mesure}}</td>
+                    </tr>
+                    <tr>
+                        <th>luminosité</th>
+                        <td>{{germination.brightness | mesure}}</td>
+                    </tr>
+                    <tr>
+                        <th>temps de pousse</th>
+                        <td>{{germination.growingTime | mesure}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </dd>
         <dt>Wikipedia</dt>
         <dd><a href="{{wikipedia}}" target="_blank">plus d'infos</a></dd>
     </dl>

@@ -5,6 +5,28 @@
     ],
     "desc": "Le haricot mungo ou ambérique verte (chinois : 绿豆, pinyin : lǜdòu) dit aussi soja vert est une plante annuelle de la famille des Fabacées (Papilionacées) originaire du sous-continent indien et cultivée comme plante potagère pour ses graines consommées comme légume à l'instar du haricot commun. C'est un ingrédient courant de la cuisine asiatique, utilisé cuit ou cru, notamment sous la forme germée erronément appelée « pousses de soja ». Ce haricot est réputé avoir des propriétés fortifiantes et lutter contre la fatigue.",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_mungo",
-    "family": "fabacées"
+    "family": "fabacées",
+    "germination": {
+        "soaking": {
+            "value": "8/12",
+            "mesure": "hour"
+        },
+        "humidity": {
+            "value": "60",
+            "mesure": "percent"
+        },
+        "temprature": {
+            "value": "35",
+            "mesure": "celsius"
+        },
+        "brightness": {
+            "value": "50",
+            "mesure": "lumen"
+        },
+        "growingTime": {
+            "value": "4/5",
+            "mesure": "day"
+        }
+    }
 }
 

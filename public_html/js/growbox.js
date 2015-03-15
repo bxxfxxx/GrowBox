@@ -3,6 +3,7 @@ var growboxApp = angular.module('growboxApp', [
     'ngRoute',
     'header-directive',
     'growboxControllers',
-    'growboxServices'
+    'growboxServices',
+    'growboxFilters'
 ]);
 
