@@ -22,7 +22,8 @@ growboxApp.config(['$routeProvider',
                     controller: 'ProfileCtrl'
                 })
                 .when('/germination/current', {
-                    templateUrl: 'snippet/current-germination.html'
+                    templateUrl: 'snippet/current-germination.html',
+                    controller: 'GerminationCtrl'
                 })
                 .otherwise({
                     redirectTo: '/home'

@@ -8,93 +8,80 @@
         <div class="panel-body">
             <form id="germination-form" class="form-horizontal">
                 <div class="form-group">
-                    <label for="input-temperature" class="col-md-3 control-label">
-                        <span class="label label-info">Température</span>
-                    </label>
-                    <div class="input-group" class="col-md-6">
-                        <input  ng-model="user.mail" type="text" class="form-control" id="input-email" placeholder="Email">
-                        <span class="input-group-addon">C&deg;</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="input-firstname" class="col-sm-3 control-label">
-                        <span class="label label-info">Prénom</span>
-                    </label>
-                    <div class="col-md-8">
-                        <input  ng-model="user.firstname" type="text" class="form-control" id="input-firstname" placeholder="Team">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="input-lastname" class="col-sm-3 control-label">
-                        <span class="label label-info">Nom</span>
-                    </label>
-                    <div class="col-md-8">
-                        <input ng-model="user.lastname" type="text" class="form-control" id="input-lastname" placeholder="Rocket">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="input-img" class="col-sm-3 control-label">
-                        <span class="label label-info">Photo</span>
-                    </label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-                            <input  ng-model="user.img" type="text" class="form-control" id="input-img" placeholder="http://">
-                            <div class="input-group-addon"><i class="glyphicon glyphicon-upload"></i></div>
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="btn-group btn-group-justified">
+                            <a class="btn btn-success"><i class="glyphicon glyphicon-play"></i></a>
+                            <a class="btn btn-danger"><i class="glyphicon glyphicon-pause"></i></a>
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="pin9" class="col-md-3 control-label">
+                        <span class="label label-default ">Température</span>
+                    </label>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input ng-model="pin9" type="text" ng-pattern="/\d/" class="form-control"/>
+                                    <span class="input-group-addon">C&deg;</span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addTemperature(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>
+                                    <input ng-model="pin9" type="range" class="form-control" id="pin9">
+                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addTemperature(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pin3" class="col-md-3 control-label">
+                        <span class="label label-default">Luminosité</span>
+                    </label>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input ng-model="pin3" type="text" class="form-control"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addBrightness(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>
+                                    <input ng-model="pin3" type="range" class="form-control" id="pin3">
+                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addBrightness(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pin5" class="col-md-3 control-label">
+                        <span class="label label-default">Ventilation</span>
+                    </label>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input ng-model="pin5" type="text" class="form-control"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addVentilation(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>
+                                    <input ng-model="pin5" type="range" class="form-control" id="pin5">
+                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addVentilation(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        </form>
     </div>
-
-<table name="Table" class="table table-bordered">
-    <tbody>
-        <tr> 
-            <th align="center" colspan="6" >Input ADC</th>
-        </tr>
-        <tr>
-            <td align="center">
-                Temperature in C
-                <input type="text" name="analogA0" id="analog0" value="0" size="6" readonly/>
-                <span id="analog0"></span>&deg;
-            </td>
-        </tr>
-    </tbody>
-
-    <tr> <th align="center" colspan="6" >Input digital</th></tr>
-    <tr>
-        <td align="center">
-            2
-            <img src="off.jpg" width="500" id="image2" />
-        </td>
-    </tr>
-    <tr> <th align="center" colspan="6" >PARAMETRES DE POUSSE</th></tr>
-    <tr>
-        <td align="center">
-            MODIFIE LA LUMINOSITE!!!
-            <input type="hidden" name="pin" value="3" id="pin3" />
-            <input type="range" style="width: 200px; height: 30px;" id="dac3" min="0" max="255" value="0" step="1" onchange="sendDac(document.getElementById('pin3').value,
-                            this.value);"/>
-            <span id="valueDac3">0</span>%
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            MODIFIE LA VENTILATION!!!
-            <input type="hidden" name="pine" value="5" id="pin5" />
-            <input type="range" style="width: 200px; height: 30px;" id="dac5" min="0" max="255" value="0" step="1" onchange="sendDac(document.getElementById('pin5').value,
-                            this.value);"/>
-            <span id="valueDac5"> 0 </span>%
-        </td>
-    </tr>
-    <td align="center">
-        MODIFIE LA TEMPERATURE!!!
-        <input type="hidden" name="pine" value="9" id="pin9" />
-        <input type="range" style="width: 200px; height: 30px;" id="dac9" min="0" max="255" value="0" step="1" onchange="sendDac(document.getElementById('pin9').value,
-                        this.value);"/>
-        +<span id="valueDac9"> 0 </span>°C
-    </td>
-</tr>
-</table>
-<p id="description"> - </p>
+</div>

@@ -59,3 +59,29 @@ growboxControllers.controller('ProfileCtrl', ['$scope', '$location', 'UserServic
         };
     }
 ]);
+
+growboxControllers.controller( 'GerminationCtrl', ['$scope', 
+    function($scope){
+        //temperature
+        $scope.pin9 = 0;
+        $scope.addTemperature = function( val ){
+            var temperature = parseFloat( $scope.pin9 ) + parseFloat( val );
+            temperature = temperature > 100 ? 100 : temperature < 0 ? 0 : temperature;
+            $scope.pin9 = temperature;
+        };
+        //luminosité
+        $scope.pin3 = 0;
+        $scope.addBrightness = function( val ){
+            var brightness = parseFloat( $scope.pin3 ) + parseFloat( val );
+            brightness = brightness > 100 ? 100 : brightness < 0 ? 0 : brightness;
+            $scope.pin3 = brightness;
+        };
+        //ventilation
+        $scope.pin5 = 0;
+        $scope.addVentilation = function( val ){
+            var ventilation = parseFloat( $scope.pin5 ) + parseFloat( val );
+            ventilation = ventilation > 100 ? 100 : ventilation < 0 ? 0 : ventilation;
+            $scope.pin5 = ventilation;
+        };
+    }
+]);
