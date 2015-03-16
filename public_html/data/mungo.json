@@ -21,7 +21,7 @@
         },
         "brightness": {
             "value": "50",
-            "mesure": "lumen"
+            "mesure": "lux"
         },
         "growingTime": {
             "value": "4/5",
