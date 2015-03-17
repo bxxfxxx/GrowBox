@@ -55,3 +55,21 @@ growboxServices.factory('LoginService', ['$http', '$location', 'UserService',
         return loginService;
     }
 ]);
+
+growboxServices.factory('ArduinoService',['$http',
+    function(){
+        var arduinoService = {};
+        arduinoService.sendDac = function(Pin, value) {
+            var ValNum = "valueDac" + Pin;
+            document.getElementById(ValNum).innerHTML = value * 100 / 255 - value * 100 / 255 % 1;
+            document.getElementById("description").innerHTML = "Processing Slider";
+            server = "/arduino/dac/" + Pin + "/" + value;
+            request = new XMLHttpRequest();
+            request.onreadystatechange = updateasyncDac;
+            request.open("GET", server, true);
+            request.send(null);
+        };
+        
+        return arduinoService;
+    }
+]);
