@@ -6,15 +6,18 @@
             </h4>
         </div>
         <div class="panel-body">
-            <form id="germination-form" class="form-horizontal">
+            <form id="germination-form" class="form-horizontal" ng-model-options="{ getterSetter: true }">
+                <!-- copier à partir d'ici -->
                 <div class="form-group">
-                    <div class="col-md-4 col-md-offset-4">
+                    <div class="col-md-4 col-md-offset-2">
                         <div class="btn-group btn-group-justified">
-                            <a class="btn btn-success"><i class="glyphicon glyphicon-play"></i></a>
+                            <a class="btn btn-success" ng-click="updateStatus()"><i class="glyphicon glyphicon-play"></i></a>
                             <a class="btn btn-danger"><i class="glyphicon glyphicon-stop"></i></a>
                         </div>
                     </div>
+                    <div class="col-md-4"><input type="text" ng-model="A0Status"/></div>
                 </div>
+                <!-- jusqu'à ici -->
                 <div class="form-group">
                     <label for="pin9" class="col-md-3 control-label">
                         <span class="label label-default ">Température</span>
@@ -24,15 +27,17 @@
                             <div class="col-md-4">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="icon icon-temperature"></i></span>
-                                    <input ng-model="pin9" type="text" class="form-control text-right"/>
+                                    <input ng-model="temperature.value" type="text" class="form-control text-right" ng-change="sendDac(temperature)"/>
                                     <span class="input-group-addon">C&deg;</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addTemperature(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>
-                                    <input ng-model="pin9" type="range" class="form-control" id="pin9">
-                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addTemperature(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>
+                                    <!--                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addTemperature(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>-->
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-minus-sign"></i></span>
+                                    <input ng-model="temperature.value" type="range" class="form-control" id="temperature" ng-change="sendDac(temperature)">
+                                    <!--                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addTemperature(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>-->
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-plus-sign"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -47,15 +52,17 @@
                             <div class="col-md-4">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="icon icon-sun"></i></span>
-                                    <input ng-model="pin3" type="text" class="form-control text-right"/>
+                                    <input ng-model="brightness.value" type="text" class="form-control text-right" ng-change="sendDac(brightness)"/>
                                     <span class="input-group-addon">%</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addBrightness(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>
-                                    <input ng-model="pin3" type="range" class="form-control" id="pin3">
-                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addBrightness(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>
+                                    <!--<span class="input-group-btn"><button class="btn btn-minus" ng-click="addBrightness(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>-->
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-minus-sign"></i></span>
+                                    <input ng-model="brightness.value" type="range" class="form-control" id="pin3" ng-change="sendDac(brightness)">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-plus-sign"></i></span>
+                                    <!--                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addBrightness(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>-->
                                 </div>
                             </div>
                         </div>
@@ -70,15 +77,17 @@
                             <div class="col-md-4">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="icon icon-wind"></i></span>
-                                    <input ng-model="pin5" type="text" class="form-control text-right"/>
+                                    <input ng-model="ventilation.value" type="text" class="form-control text-right"  ng-change="sendDac(ventilation)"/>
                                     <span class="input-group-addon">%</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addVentilation(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>
-                                    <input ng-model="pin5" type="range" class="form-control" id="pin5">
-                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addVentilation(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>
+                                    <!--                                    <span class="input-group-btn"><button class="btn btn-minus" ng-click="addVentilation(-1)"><i class="glyphicon glyphicon-minus-sign"></i></button></span>-->
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-minus-sign"></i></span>
+                                    <input ng-model="ventilation.value" type="range" class="form-control" id="pin5" ng-change="sendDac(ventilation)">
+                                    <!--                                    <span class="input-group-btn"><button class="btn btn-plus" ng-click="addVentilation(1)"><i class="glyphicon glyphicon-plus-sign"></i></button></span>-->
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-plus-sign"></i></span>
                                 </div>
                             </div>
                         </div>

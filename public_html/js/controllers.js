@@ -60,28 +60,76 @@ growboxControllers.controller('ProfileCtrl', ['$scope', '$location', 'UserServic
     }
 ]);
 
-growboxControllers.controller( 'GerminationCtrl', ['$scope', 
-    function($scope){
+growboxControllers.controller( 'GerminationCtrl', ['$scope', 'ArduinoService',
+    function($scope, ArduinoService){
         //temperature
-        $scope.pin9 = 0;
+        var _temperature = 0;
+        var _brightness = 0;
+        var _ventilation = 0;
+        $scope.temperature = {
+            id: 9,
+            value: function( val ){
+                if ( angular.isDefined( val ) ) {
+                    var temperature = parseFloat( val );
+                    _temperature = temperature > 100 ? 100 : temperature < 0 ? 0 : temperature;
+                }
+                return _temperature;
+            }
+        };
         $scope.addTemperature = function( val ){
-            var temperature = parseFloat( $scope.pin9 ) + parseFloat( val );
-            temperature = temperature > 100 ? 100 : temperature < 0 ? 0 : temperature;
-            $scope.pin9 = temperature;
+            var temperature = parseFloat( $scope.temperature.value() ) + parseFloat( val );
+            $scope.temperature.value( temperature );
         };
         //luminosité
-        $scope.pin3 = 0;
+        $scope.brightness = {
+            id: 3,
+            value: function( val ){
+                if ( angular.isDefined( val ) ) {
+                    var brightness = parseFloat( val );
+                    _brightness = brightness > 100 ? 100 : brightness < 0 ? 0 : brightness;
+                }
+                return _brightness;
+            }
+        };
         $scope.addBrightness = function( val ){
-            var brightness = parseFloat( $scope.pin3 ) + parseFloat( val );
-            brightness = brightness > 100 ? 100 : brightness < 0 ? 0 : brightness;
-            $scope.pin3 = brightness;
+            var brightness = parseFloat ( $scope.brightness.value() ) + parseFloat( val );
+            console.log( brightness );
+            $scope.brightness.value(brightness);
         };
         //ventilation
-        $scope.pin5 = 0;
+        $scope.ventilation = {
+            id: 5,
+            value: function( val ){
+                if ( angular.isDefined( val ) ) {
+                    var ventilation = parseFloat( val );
+                    _ventilation = ventilation > 100 ? 100 : ventilation < 0 ? 0 : ventilation;
+                }
+                return _ventilation;
+            }
+        };
         $scope.addVentilation = function( val ){
-            var ventilation = parseFloat( $scope.pin5 ) + parseFloat( val );
-            ventilation = ventilation > 100 ? 100 : ventilation < 0 ? 0 : ventilation;
-            $scope.pin5 = ventilation;
+            var ventilation = parseFloat( $scope.ventilation.value() ) + parseFloat( val );
+            $scope.ventilation.value( ventilation );
+        };
+        
+        $scope.sendDac = ArduinoService.sendDac;
+        $scope.statusArray = [];
+        $scope.A0Status = 0;
+        $scope.updateStatus = function(){
+            ArduinoService.getStatus();
+            console.log( 'before timeout');
+            setTimeout(function(){
+                console.log( 'ttimeout statusArray', ArduinoService.statusArray );
+                _.each( ArduinoService.statusArray, function(status){
+                    console.log( 'status', status );
+                    status = status.split('=');
+                    if( status[0] === 'A0' ){
+                        console.log( 'A0 found');
+                        $scope.A0Status = status[1];
+                    }
+                });
+                console.log('after timeout');
+            },1000);
         };
     }
 ]);
