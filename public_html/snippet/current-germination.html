@@ -7,15 +7,21 @@
         </div>
         <div class="panel-body">
             <form id="germination-form" class="form-horizontal" ng-model-options="{ getterSetter: true }">
-                <!-- copier à partir d'ici -->
+                <!-- pour ajouter un capteur copier à partir d'ici -->
                 <div class="form-group">
-                    <div class="col-md-4 col-md-offset-2">
-                        <div class="btn-group btn-group-justified">
-                            <a class="btn btn-success" ng-click="updateStatus()"><i class="glyphicon glyphicon-play"></i></a>
-                            <a class="btn btn-danger"><i class="glyphicon glyphicon-stop"></i></a>
+                    <label class="col-md-4 control-label">
+                        <span class="label label-default ">Capteur de luminosité</span>
+                    </label>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="sensors.brightness.value"/>
+                                    <span class="input-group-btn"><button class="btn" ng-click="updateStatus()"><i class="glyphicon glyphicon-refresh"></i></button></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4"><input type="text" ng-model="A0Status"/></div>
                 </div>
                 <!-- jusqu'à ici -->
                 <div class="form-group">
@@ -97,3 +103,11 @@
         </div>
     </div>
 </div>
+
+<!--div class="col-md-4 col-md-offset-2">
+                        <div class="btn-group btn-group-justified">
+                            <a class="btn btn-success" ng-click="updateStatus()"><i class="glyphicon glyphicon-play"></i></a>
+                            <a class="btn btn-danger"><i class="glyphicon glyphicon-stop"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4"><input type="text" ng-model="A0Status"/></div-->

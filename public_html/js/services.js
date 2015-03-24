@@ -59,21 +59,33 @@ growboxServices.factory('LoginService', ['$http', '$location', 'UserService',
 growboxServices.factory('ArduinoService', ['$http',
     function ($http) {
         var arduinoService = {};
-        arduinoService.sendDac = function ( elem ) {
+        arduinoService.sendDac = function (elem) {
             var value = elem.value();
             var dacId = elem.id;
             value = Math.floor(value * 2.55);
             var url = "/arduino/dac/" + dacId + "/" + value;
-            $http.get(url).success( function (data) {
-                console.log(data);
+            $http.get(url).success(function (data) {
                 return data;
             });
         };
         arduinoService.statusArray = [];
-        arduinoService.getStatus = function(){
+        arduinoService.getStatus = function () {
             var url = "/arduino/status/99";
-            $http.get( url ).success( function ( data ) {
+            $http.get(url).success(function (data) {
+                console.log('success');
                 arduinoService.statusArray = data.split('#');
+            }).error(function (data) {
+                console.log('arduino unreachable, mocking data with random values');
+                var randomValue = function () {
+                    return Math.floor(Math.random() * 1024);
+                };
+                var newArray = [
+                    'A0=' + randomValue(),
+                    '2=' + randomValue(),
+                    '12=' + randomValue(),
+                    '13=' + randomValue()
+                ];
+                arduinoService.statusArray = newArray;
             });
         };
         return arduinoService;
